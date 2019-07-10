@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Yet another node process.env loader",
   "main": "bin/index.js",
+  "types": "bin/index.d.ts",
   "scripts": {},
   "keywords": [
     "node",
