@@ -4,7 +4,7 @@ Yet another env loader.
 
 ## Installation
 
-Download the package manager [npm](https://www.npmjs.com) i process-env-loader
+$ [npm](https://www.npmjs.com) i process-env-loader
 
 ## Usage
 
