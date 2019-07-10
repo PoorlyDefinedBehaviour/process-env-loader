@@ -1,14 +1,17 @@
 {
-  "name": "env-loader",
-  "version": "1.0.0",
-  "description": "",
+  "name": "process-env-loader",
+  "version": "1.0.1",
+  "description": "Yet another node process.env loader",
   "main": "bin/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --inspect -- src/index.ts"
-  },
-  "keywords": [],
-  "author": "",
+  "scripts": {},
+  "keywords": [
+    "node",
+    "javascript",
+    "typescript",
+    "env",
+    "process"
+  ],
+  "author": "PoorlyDefinedBehaviour",
   "license": "ISC",
   "devDependencies": {}
 }
