@@ -19,7 +19,7 @@ function* tokenize(
   }
 }
 
-export default (path?: string, separator: string = "="): void => {
+const load = (path?: string, separator: string = "="): void => {
   const file: Maybe<string> = readFileSync(
     join(path || process.cwd(), ".env"),
     { encoding: "utf8" }
@@ -36,3 +36,5 @@ export default (path?: string, separator: string = "="): void => {
     }
   }
 };
+
+export default load;
