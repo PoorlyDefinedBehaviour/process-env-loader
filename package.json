@@ -1,6 +1,6 @@
 {
   "name": "process-env-loader",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Yet another node process.env loader",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

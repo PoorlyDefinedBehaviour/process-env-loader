@@ -13,7 +13,6 @@ function* tokenize(
     .split(/\n| /)
     .filter((toke: string) => !!toke);
 
-  console.log(tokens);
   if (!tokens) return;
 
   for (const token of tokens) {
@@ -23,19 +22,23 @@ function* tokenize(
 }
 
 export default (path?: string, separator: string = "="): void => {
-  const file: Maybe<string> = readFileSync(
-    join(path || process.cwd(), ".env"),
-    { encoding: "utf8" }
-  );
+  try {
+    const file: Maybe<string> = readFileSync(
+      join(path || process.cwd(), ".env"),
+      { encoding: "utf8" }
+    );
 
-  const file_tokens: Maybe<IterableIterator<Array<string>>> = tokenize(
-    file,
-    separator
-  );
+    const file_tokens: Maybe<IterableIterator<Array<string>>> = tokenize(
+      file,
+      separator
+    );
 
-  if (file_tokens) {
-    for (const [property, value] of file_tokens) {
-      process.env[property] = value;
+    if (file_tokens) {
+      for (const [property, value] of file_tokens) {
+        process.env[property] = value;
+      }
     }
+  } catch (error) {
+    console.error("Couldn't find .env file");
   }
 };
