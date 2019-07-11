@@ -1,16 +1,19 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 
-type Maybe<T> = T | null | undefined;
+export type Maybe<T> = T | null | undefined;
 
 function* tokenize(
   content: string,
-  separator: string = "="
+  separator: string
 ): Maybe<IterableIterator<Array<string>>> {
   if (!content) return;
 
-  const tokens: Maybe<Array<string>> = content.split(/\n/);
+  const tokens: Maybe<Array<string>> = content
+    .split(/\n| /)
+    .filter((toke: string) => !!toke);
 
+  console.log(tokens);
   if (!tokens) return;
 
   for (const token of tokens) {
@@ -19,7 +22,7 @@ function* tokenize(
   }
 }
 
-const load = (path?: string, separator: string = "="): void => {
+export default (path?: string, separator: string = "="): void => {
   const file: Maybe<string> = readFileSync(
     join(path || process.cwd(), ".env"),
     { encoding: "utf8" }
@@ -36,5 +39,3 @@ const load = (path?: string, separator: string = "="): void => {
     }
   }
 };
-
-export default load;

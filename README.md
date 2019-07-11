@@ -4,7 +4,7 @@ Yet another env loader.
 
 ## Installation
 
-$ [npm](https://www.npmjs.com) i process-env-loader
+\$ [npm](https://www.npmjs.com) i process-env-loader
 
 ## Usage
 
@@ -20,8 +20,26 @@ load("mypath/subfolder/"); // Loads .env from the specified folder
 
 ```js
 import load from "process-env-loader";
-// The key value pairs can be separated by anything, as long as you specify the separator when loading the file.
+/**
+ * The key value pairs can be separated by anything,
+ * as long as you specify the separator when loading the file.
+ * */
 load("mypath/subfolder/", "->"); // Loads .env from the specified folder, using the specified seperator
+```
+
+
+.env could look like one of these
+
+```js
+FOO=BAR
+```
+
+```js
+FOO->BAR
+```
+
+```js
+FOO,BAR
 ```
 
 ## Contributing
